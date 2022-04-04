@@ -45,7 +45,7 @@ const updateDOM = (moveOne, moveTwo, outcome) => {
   player2Img.src = '/images/' + moveTwo + '.png'
 
   const outcomeLabel = document.createElement('LABEL')
-  outcomeLabel.setAttribute('id', 'outcomeLabel')
+  outcomeLabel.id = 'outcomeLabel'
   outcomeLabel.innerHTML = outcome
   document.body.appendChild(outcomeLabel)
 }
