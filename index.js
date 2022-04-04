@@ -22,12 +22,8 @@ const getOutcome = (moveOne, moveTwo) => {
 
 // Removing elements (nodes) from the DOM
 const resetGame = () => {
-  if (document.getElementById('outcome')) {
-    const outcome = document.body.lastChild
-    document.body.removeChild(outcome)
-  }
-
-  //document.body.removeChild(rockImg)
+  if (document.getElementById('outcomeLabel'))
+    document.getElementById('outcomeLabel').remove()
 }
 
 const playGame = () => {
@@ -41,28 +37,17 @@ const playGame = () => {
 const updateDOM = (moveOne, moveTwo, outcome) => {
   // TODO Implement this method to update the DOM
   // There are some images you can use in the images directory
-  const rockImg = new Image(25, 25)
 
-  rockImg.src = '/images/rock.png'
-  const paperImg = new Image(25, 25)
+  const player1Img = document.getElementById('player-one-move__img')
+  const player2Img = document.getElementById('player-two-move__img')
 
-  paperImg.src = '/images/paper.png'
-  const scissorsImg = new Image(25, 25)
+  player1Img.src = '/images/' + moveOne + '.png'
+  player2Img.src = '/images/' + moveTwo + '.png'
 
-  scissorsImg.src = '/images/scissors.png'
-
-  const card1 = document.getElementById('player-one')
-  const card2 = document.getElementById('player-two')
-
-  if (moveOne === 'rock') card1.append(rockImg)
-  else if (moveOne === 'paper') card1.append(paperImg)
-  else if (moveOne === 'scissors') card1.append(scissorsImg)
-
-  if (moveTwo === 'rock') card2.append(rockImg)
-  else if (moveTwo === 'paper') card2.append(paperImg)
-  else if (moveTwo === 'scissors') card2.append(scissorsImg)
-
-  document.body.append(outcome)
+  const outcomeLabel = document.createElement('LABEL')
+  outcomeLabel.setAttribute('id', 'outcomeLabel')
+  outcomeLabel.innerHTML = outcome
+  document.body.appendChild(outcomeLabel)
 }
 
 const playButton = document.getElementById('play-btn')
