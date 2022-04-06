@@ -22,8 +22,8 @@ const getOutcome = (moveOne, moveTwo) => {
 
 // Removing elements (nodes) from the DOM
 const resetGame = () => {
-  if (document.getElementById('outcomeLabel'))
-    document.getElementById('outcomeLabel').remove()
+  if (document.getElementById('outcomeTextView'))
+    document.getElementById('outcomeTextView').remove()
 }
 
 const playGame = () => {
@@ -44,10 +44,11 @@ const updateDOM = (moveOne, moveTwo, outcome) => {
   player1Img.src = '/images/' + moveOne + '.png'
   player2Img.src = '/images/' + moveTwo + '.png'
 
-  const outcomeLabel = document.createElement('LABEL')
-  outcomeLabel.id = 'outcomeLabel'
-  outcomeLabel.innerHTML = outcome
-  document.body.appendChild(outcomeLabel)
+  const outcomeTextView = document.createElement('p')
+  outcomeTextView.id = 'outcomeTextView'
+  outcomeTextView.type = 'text'
+  outcomeTextView.innerText = outcome
+  document.body.appendChild(outcomeTextView)
 }
 
 const playButton = document.getElementById('play-btn')
